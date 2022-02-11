@@ -1,2 +1,2 @@
-This is a project about basic html, css base on shopee.vn!
+This is my project about basic html, css base on shopee.vn!
 
