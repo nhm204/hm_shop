@@ -1,0 +1,943 @@
+/* ----- Navbar ----- */
+.header {
+    height: var(--header-height);
+    background-image: linear-gradient(-180deg,#f53d2d,#f63);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex; /* chỉnh item bằng nhau */
+}
+
+.nav__item {
+    margin: 0 12px;
+    position: relative;
+    min-height: 24px; /* thẻ li là số chẵn để có thể căn giữa */
+}
+
+.nav__item--has-qr:hover .header__qr { /* những attribute được CSS trong này sẽ apply cho header__qr khi hover vào nav__item--has-qr */
+    display: block;
+}
+
+.nav__item--has-notify:hover .notify {
+    display: block;
+}
+
+.nav__item,
+.nav__item-link {
+    color: var(--white-color);
+    font-size: 1.3rem;
+    text-decoration: none;
+    display: inline-block;
+    padding: 4px;
+    font-weight: 300;
+}
+
+.nav__item:hover,
+.nav__item-link:hover,
+.nav__icon-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.nav__item--bold {
+    font-weight: 500;
+}
+
+.nav__item--separator::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid #fb9086;
+    height: 15px;
+    top: 50%; /* 50% thẻ li */
+    right: -9px;
+    transform: translateY(-50%); /* -50% kích thước chiều cao của chính nó */
+}
+
+.nav__icon-link {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.nav__icon-link:nth-child(2) {
+    margin-left: 3px;
+}
+
+.nav__item,
+.nav__item-link,
+.nav__icon-link {
+    display: flex;
+    align-items: center;
+}
+
+.nav__icon {
+    font-size: 1.6rem;
+    margin: 0 4px;
+}
+
+.nav__icon--size-m {
+    font-size: 1.8rem;
+}
+
+.nav__title--no-pointer {
+    cursor: text;
+    color: var(--white-color);
+}
+
+
+/* ----- Header QR Code ----- */
+.header__qr {
+    width: 190px;
+    background-color: var(--white-color);
+    position: absolute;
+    left: 0;
+    top: 130%; /* cao bằng 100% thẻ chứa nó, ở đây là bằng chiều cao thẻ li và cộng thêm 30% để cách thẻ li */
+    padding: 8px;
+    border-radius: 2px;
+    display: none;
+    animation: fadeIn ease .3s;
+    z-index: 2;
+}
+
+.header__qr::before { /* tạo cầu nối thẻ li và qr code lại để khi kh hover vô nav__item--has-qr thì qr code kh bị display: none */
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 100%;
+    height: 20px;
+    content: "";
+    display: block;
+}
+
+.header__qr-img {
+    width: 100%;
+}
+
+.header__qr-apps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;;
+}
+
+.header__qr-link:nth-child(1) {
+    margin-left: 12px;
+}
+
+.header__qr-link:last-child {
+    margin-right: 12px;
+}
+
+.header__qr-download-img {
+    height: 16px;
+}
+
+
+/* ----- Header Notification ----- */
+.notify {
+    position: absolute;
+    top: 110%;
+    right: 8px;
+    width: 404px;
+    background-color: var(--white-color);
+    border: 1px solid #d3d3d3;
+    border-radius: 2px;
+    /* cursor: default; */
+    transform-origin: calc(100% - 40px) top; /* 90% 0% */
+    animation: fadeInAndGrowth ease-in 0.2s;
+    will-change: opacity, transform; /* tối ưu animation */
+    display: none;
+    box-shadow: 0 1px 50px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.notify::before {
+    content: "";
+    border-width: 20px 28px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    position: absolute;
+    right: 10px;
+    top: -28px;
+}
+
+.notify::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -16px;
+    width: 90px;
+    height: 20px;
+}
+
+.notify-header {
+    height: 40px;
+    background-color: var(--white-color);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.notify-header h3 {
+    color: #999;
+    margin: 0 0 0 12px; /* mặc định của thẻ h3 có margin nên cho margin bằng 0 */
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 40px;
+    cursor: default;
+    user-select: none; /* kh cho user copy, ... & shopee kh có */ 
+    -webkit-user-select: none; /* làm cho các trình duyệt */
+}
+
+.notify-list {
+    padding-left: 0; /* trình duyệt tự padding vào nên ta cần bỏ */
+    list-style: none;
+}
+
+.notify__item {
+
+}
+
+.notify__item:hover {
+    background-color: #f8f8f8;
+}
+
+.notify__item--not-seen {
+    background-color: rgba(238, 77, 45, 0.08);
+}
+
+.notify__item-link {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.notify__item-img {
+    width: 48px;
+    object-fit: contain; /* để ảnh hình chữ nhật kh bị hư kích thước thật */
+}
+
+.notify__item-info {
+    margin-left: 8px;
+
+}
+
+.notify__item-title {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.notify__item-desc {
+    display: block;
+    font-size: 1.2rem;
+    color: #756f6e;
+    line-height: 1.6rem;
+    margin-top: 4px;
+}
+
+.notify-footer {
+    display: flex; /* có display bằng flex rồi thì kh cần css cho btn bằng block (thẻ a ban đầu kh có tchat block nên padding kh ăn vào thẻ cha */
+}
+
+.notify-footer-btn {
+    text-decoration: none;
+    color: var(--text-color);
+    width: 100%;
+    padding: 8px 0;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+    /* display: block; */
+}
+
+
+/* Authentication Modal: General */
+.auth-modal {
+    width: 440px;
+    background-color: var(--white-color);
+    border-radius: 4px;
+    overflow: hidden; /* tránh thẻ con bị tràn ra */
+}
+
+.auth-modal__container {
+    padding: 0 32px;
+}
+
+.auth-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.auth-modal__heading {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.auth-modal__switch-btn {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.auth-modal__form {
+    
+}
+
+.auth-modal__group {
+    position: relative;
+}
+
+.auth-modal__input {
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    outline: none;
+    display: inline-block;
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 2%)
+}
+
+.auth-modal__input:focus {
+    border-color: #757575;
+}
+
+.auth-modal__input-icon {
+    position: absolute;
+    font-size: 1.8rem;
+    color: #757575;
+    right: 15px;
+    top: calc(100% - 28px);
+}
+
+.auth-modal__control {
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-modal__control-back {
+    margin-right: 8px;
+}
+
+.auth-modal__socials {
+    background-color: #f5f5f5;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+}
+
+.auth-modal__socials-icon {
+    font-size: 1.8rem;
+    padding: 1px 0 0 0;
+}
+
+.auth-modal__socials--facebook {
+    background-color: #3a5a98;
+    color: var(--white-color);
+}
+
+.auth-modal__socials--facebook .auth-modal__socials-icon {
+    color: var(--white-color);
+}
+
+.auth-modal__socials--google .auth-modal__socials-icon {
+    color: rgb(82, 82, 255);
+}
+
+.auth-modal__socials-label {
+    margin: 0 12px; /* margin: 0 20px; cho đăng ký */
+}
+
+.auth-modal__socials--google {
+    background-color: var(--white-color);
+    color: var(--text-color);
+    border: 1px solid #bdbdbd;
+}
+
+
+/* Authentication Modal: Register Form */
+.auth-modal__condition {
+    margin-top: 18px;
+}
+
+.auth-modal__policy {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+    padding: 0 16px;
+    color: var(--text-color);
+}
+
+.auth-modal__policy-link {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+
+/* Authentication Modal: Login Form */
+.auth-modal__task {
+    margin-top: 28px;
+}
+
+.auth-modal__help {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-modal__help-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #757575;
+}
+
+.auth-modal__help-separator {
+    display: block;
+    height: 20px;
+    border-left: 1px solid #eaeaea;
+    margin: -2px 8px 0;
+}
+
+.auth-modal__help--reset-password {
+    color: var(--primary-color);
+}
+
+
+/* User Login Layout */
+.nav__user {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.nav__user:hover .nav__user-menu {
+    display: block;
+}
+
+.nav__user-img {
+    width: 23px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.nav__user-name {
+    margin-left: 4px;
+    font-weight: 400;
+}
+
+.nav__user-menu {
+    position: absolute;
+    list-style: none;
+    width: 160px;
+    padding-left: 0;
+    right: 0;
+    top: calc(100% + 2px);
+    background-color: var(--white-color);
+    border: 1px solid #d3d3d3;
+    border-radius: 2px;
+    box-shadow: 0 1px 50px 0 rgba(0, 0, 0, 0.2);
+    transform-origin: 80% top; 
+    animation: fadeInAndGrowth ease-in 0.15s;
+    will-change: opacity, transform; 
+    z-index: 2;
+    display: none;
+}
+
+.nav__user-menu::before {
+    content: "";
+    position: absolute;
+    border-width: 14px 20px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    right: 10%;
+    top: -23px;
+    cursor: pointer;
+    z-index: -1;
+}
+
+.nav__user-menu::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 80%;
+    height: 16px;
+    right: 0;
+    top: -12px;
+}
+
+.nav__user-item--separator {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav__user-item a {
+    text-decoration: none;
+    display: block;
+    color: var(--text-color);
+    padding: 12px 16px;
+}
+
+.nav__user-item a:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.nav__user-item a:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.nav__user-item a:hover {
+    background-color: #f8f8f8;
+}
+
+
+/* Header with Search */
+.header-with-search {
+    height: var(--header-with-search-height);
+    display: flex;
+    align-items: center;
+    margin: 0 12px;
+}
+
+.header__logo {
+    width: 200px;
+}
+
+.header__logo-link {
+    color: transparent;
+    text-decoration: none;
+}
+
+.header__logo-img {
+    width: 150px;
+}
+
+.header-searchbar {
+    flex: 1;
+    height: 40px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 9%);
+    z-index: 1;
+}
+
+.header-searchbar__input-wrapper {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.header-searchbar__input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    padding: 0 16px; 
+    border-radius: 2px;
+}
+
+.header-searchbar__input:focus ~ .header-search-history {
+    display: block;
+}
+
+
+/* Search History */
+.header-search-history {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    width: calc(100% - 20px);
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 26%);
+    overflow: hidden;
+    display: none;
+}
+
+.search-history-heading {
+    margin: 12px 12px;
+    color: #bdbdbd;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.search-history-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 6px 0 0;
+}
+
+.search-history__item {
+    height: 38px;
+    padding: 0px 12px;
+}
+
+.search-history__item:hover {
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+.search-history__item a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    display: block;
+    line-height: 38px;
+}
+
+
+/* Search Bar Selector */
+.header-searchbar__selector {
+    padding: 10px 0 10px 16px; 
+    position: relative;
+    cursor: pointer;
+}
+
+.header-searchbar__selector--separator::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid #e8e8e8;
+    height: 26px;
+    left: 0;
+    top: 6px;
+}
+
+.header-searchbar__selector-label {
+    font-size: 1.4rem;
+    color: #212121;
+}
+
+.header-searchbar__selector-icon {
+    font-size: 1.4rem;
+    color: #212121;
+    margin: 0 16px 0 8px;
+    position: relative;
+    top: 2px;
+}
+
+.header-searchbar__selector:hover .header-searchbar__option {
+    display: block;
+}
+
+.header-searchbar__option {
+    position: absolute;
+    list-style: none;
+    width: 156px;
+    right: 0;
+    top: 88%;
+    border-radius: 2px;
+    padding-left: 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 9%);
+    display: none;
+}
+
+.header-searchbar__option::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 12px;
+    top: -8px;
+}
+
+.header-searchbar__option-item {
+    padding: 8px 16px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-searchbar__option-item:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.header-searchbar__option-item:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.header-searchbar__option-item:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.header-searchbar__option-item span {
+    font-size: 1.4rem;
+    color: #212121;
+}
+
+.header-searchbar__option-item i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    display: none;
+}
+
+.header-searchbar__option-item--selected i {
+    display: block;
+}
+
+.header-searchbar__btn {
+    border: none;
+    border-radius: 2px;
+    /* background-color: #212121; */
+    background-color: #fb5533;
+    height: 34px;
+    width: 60px;
+    margin: 0 3px 0 0;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 9%);
+}
+
+.header-searchbar__btn:hover {
+    background-color: #fb6445;
+    /* background-color: var(--primary-color); */
+    /* background-color: #212121; */
+    cursor: pointer;
+}
+
+.header-searchbar__btn-icon {
+    color: var(--white-color);
+    font-size: 1.4rem;
+}
+
+
+/* Header Cart Layout */
+.header__cart {
+    width: 150px;
+    text-align: center;
+}
+
+.header__cart-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.header__cart-wrapper:hover .header__cart-container {
+    display: block;
+}
+
+.header__cart-icon {
+    color: var(--white-color);
+    font-size: 2.4rem;
+    margin-top: 4px;
+}
+
+.header__cart-quantity {
+    position: absolute;
+    margin-left: -8px;
+    margin-top: -6px;
+    padding: 1px 4px 0;
+    background-color: var(--white-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+}
+
+.header__cart-container {
+    position: absolute;
+    top: 132%;
+    right: -2px;
+    background-color: var(--white-color);
+    width: 404px;
+    border: 1px solid #d3d3d3;
+    border-radius: 2px;
+    transform-origin: calc(100% - 16px) top; 
+    animation: fadeInAndGrowth ease-in 0.2s;
+    will-change: opacity, transform; /* tối ưu animation */
+    box-shadow: 0 1px 50px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    cursor: default;
+    display: none;
+}
+
+.header__cart-container::before {
+    content: "";
+    position: absolute;
+    border-width: 14px 20px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    right: 2px;
+    top: -23px;
+    cursor: pointer;
+}
+
+/* Empty Cart */
+.header__cart-container--no-item {
+    padding: 56px 0;
+}
+
+.header__cart-container--no-item .header__cart-no-item-img,
+.header__cart-container--no-item .header__cart-no-item-msg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.header__cart-no-item-img {
+    width: 24%;
+    display: none;
+}
+
+.header__cart-no-item-msg {
+    display: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin-top: 24px;
+}
+
+/* Cart with Items */
+.header__cart-heading {
+    height: 40px;
+    text-align: left;
+}
+
+.header__cart-heading h3 {
+    color: #999;
+    margin: 0 0 0 12px; /* mặc định của thẻ h3 có margin nên cho margin bằng 0 */
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 40px;
+    cursor: default;
+    user-select: none; /* kh cho user copy, ... & shopee kh có */ 
+    -webkit-user-select: none; /* làm cho các trình duyệt */
+}
+
+.header__cart-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.header__cart-item:hover {
+    background-color: #f8f8f8;
+}
+
+.header__cart-item-link {
+    display: flex;
+    width: 100%;
+    padding: 12px;
+    text-decoration: none;
+    align-items: center;
+}
+
+.header__cart-item-img {
+    width: 45px;
+    object-fit: contain; /* để ảnh hình chữ nhật kh bị hư kích thước thật */
+    border: 1px solid #e8e8e8;
+}
+
+.header__cart-item-info {
+    margin-left: 12px;
+    width: 100%;
+}
+
+.header__cart-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__cart-item-name {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin: 0;
+
+    /* Title dài sẽ tự động 3 chấm */
+    max-width: 204px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; */
+}
+
+.header__cart-item-price {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.header__cart-item-multiply {
+    color: #757575;
+    font-size: 1rem;
+    margin: 0 4px;
+}
+
+.header__cart-item-quantity {
+    color: #757575;
+    font-size: 1.2rem;
+}
+
+.header__cart-item-body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.header__cart-item-classify {
+    font-size: 1.2rem;
+    color: #757575;
+    font-weight: 300;
+}
+
+.header__cart-item-name,
+.header__cart-item-price,
+.header__cart-item-multiply,
+.header__cart-item-quantity,
+.header__cart-item-classify {
+    cursor: text;
+}
+
+.header__cart-item-remove {
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+.header__cart-item-remove:hover {
+    color: var(--primary-color);
+}
+
+.header__cart-footer {
+    background-color: #fdfdfd;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header__cart-view-cart {
+    margin-right: 12px;
+}
+
+.header__cart-view-cart:hover {
+    background-color: #f05d41;
+}
