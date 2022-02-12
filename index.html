@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="app">
-        <header class="header">
+        <header class="app__header">
             <div class="grid">
                 <nav class="navbar">
                     <ul class="nav-list"> 
@@ -344,11 +344,208 @@
             </div>
         </header>
 
-        <div class="container">
+        <div class="app__container">
+            <div class="grid">
+                <div class="grid__row app__content">
+                    <div class="grid__col-2">
+                        <nav class="shop-page__category">
+                            <h3 class="category__heading">
+                                <i class="category__heading-icon ti-menu-alt"></i>
+                                <!-- <i class="category__heading-icon fas fa-list"></i> -->
+                                Danh Mục
+                            </h3>
+            
+                            <ul class="category-list">
+                                <li class="category-item category-item--selected">
+                                    <a href="#" class="category-item__link">Sản Phẩm</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Bộ sưu tập Dưỡng môi Senka</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Trọn bộ Sữa rửa mặt Senka</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Tẩy Trang</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Sữa Tắm</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Chống nắng tối ưu</a>
+                                </li>
+                                <li class="category-item">
+                                    <a href="#" class="category-item__link">Dưỡng Trắng</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+    
+                    <div class="grid__col-10">
+                        <!-- Shop Page Sort Bar with Selection: sort-bar--selected -->
+                        <div class="shop__sort-bar">
+                            <span class="sort-bar__label">Sắp xếp theo</span>
+                            <button class="sort-bar__btn sort-bar--selected btn btn--primary">Phổ Biến</button>
+                            <button class="sort-bar__btn btn">Mới Nhất</button>
+                            <button class="sort-bar__btn btn">Bán Chạy</button>
 
+                            <div class="selector">
+                                <span class="selector__label">Giá</span>
+                                <i class="selector__icon ti-angle-down"></i>
+
+                                <ul class="selector__option">
+                                    <li class="selector__option-item">
+                                        <a href="/" class="selector__option-link">
+                                            Giá: Thấp đến Cao
+                                            <i class="ti-check"></i>
+                                        </a>
+                                    </li>
+                                    <li class="selector__option-item">
+                                        <a href="/" class="selector__option-link">
+                                            Giá: Cao đến Thấp
+                                            <i class="ti-check"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sort-bar__pagination">
+                                <span class="sort-bar__pagination-number">
+                                    <span class="sort-bar__pagination-current">1</span>/3
+                                </span>
+
+                                <div class="sort-bar__pagination-control">
+                                    <a href="" class="sort-bar__pagination-btn sort-bar__pagination-btn--disabled">
+                                        <i class="sort-bar__pagination-icon fas fa-angle-left"></i>
+                                    </a>
+                                    <a href="" class="sort-bar__pagination-btn">
+                                        <i class="sort-bar__pagination-icon fas fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shop Page Product -->
+                        <div class="shop-product">
+                            <div class="grid__row">
+                                <!-- Product Item 1 -->
+                                <div class="grid__col-2">
+                                    <div class="product__item">
+                                        <div class="product__item-img" style="background-image: url(https://cf.shopee.vn/file/4fe64236908f890324b02319d63bec3f);"></div>
+                                        <h4 class="product__item-name">Sữa rửa mặt tạo bọt chiết xuất tơ tằm trắng Senka Perfect Whip 120g</h4>
+                                        <div class="product__item-price">
+                                            <span class="product__item-current-price"><u>đ</u>99.000</span>
+                                            <span class="product__item-sale-price"><u>đ</u>69.000</span>
+                                        </div>
+                                        <div class="product__item-interact">
+                                            <span class="product__item-like">
+                                                <i class="far fa-heart"></i>
+                                                <!-- <i class="fas fa-heart"></i> -->
+                                            </span>
+                                            <div class="product__item-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product__item-brief">
+                                            <span class="product__item-sold">Đã bán 107,1k</span>
+                                            <span class="product__item-location">TP. Hồ Chí Minh</span>
+                                        </div>
+                                        <div class="product__item-favorite">
+                                            <i class="ti-check"></i>
+                                            Yêu thích
+                                        </div>
+                                        <div class="product__item-promo">
+                                            <span class="product__item-promo-value">30%</span>
+                                            <span class="product__item-promo-label">GIẢM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Product Item 2 -->
+                                <div class="grid__col-2">
+                                    <div class="product__item">
+                                        <div class="product__item-img" style="background-image: url(https://cf.shopee.vn/file/1825f5f260d0e8c6d044bfaf7936567d);"></div>
+                                        <h4 class="product__item-name">Sữa rửa mặt Sạch sâu - Sáng hồng Senka Perfect Whip Berry Bright 100g</h4>
+                                        <div class="product__item-price">
+                                            <span class="product__item-current-price"><u>đ</u>105.000</span>
+                                            <span class="product__item-sale-price"><u>đ</u>74.000</span>
+                                        </div>
+                                        <div class="product__item-interact">
+                                            <span class="product__item-like">
+                                                <i class="far fa-heart"></i>
+                                                <!-- <i class="fas fa-heart"></i> -->
+                                            </span>
+                                            <div class="product__item-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product__item-brief">
+                                            <span class="product__item-sold">Đã bán 5,1k</span>
+                                            <span class="product__item-location">TP. Hồ Chí Minh</span>
+                                        </div>
+                                        <div class="product__item-favorite">
+                                            <i class="ti-check"></i>
+                                            Yêu thích
+                                        </div>
+                                        <div class="product__item-promo">
+                                            <span class="product__item-promo-value">30%</span>
+                                            <span class="product__item-promo-label">GIẢM</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product Item 3 -->
+                                <div class="grid__col-2">
+                                    <div class="product__item">
+                                        <div class="product__item-img" style="background-image: url(https://cf.shopee.vn/file/6a154b6c46854f9d1d0d0ca73b206838);"></div>
+                                        <h4 class="product__item-name">Sữa rửa mặt tạo bọt chiết xuất đất sét trắng Senka Perfect White Clay 120g</h4>
+                                        <div class="product__item-price">
+                                            <span class="product__item-current-price"><u>đ</u>109.000</span>
+                                            <span class="product__item-sale-price"><u>đ</u>99.000</span>
+                                        </div>
+                                        <div class="product__item-interact">
+                                            <span class="product__item-like">
+                                                <i class="far fa-heart"></i>
+                                                <!-- <i class="fas fa-heart"></i> -->
+                                            </span>
+                                            <div class="product__item-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="product__item-brief">
+                                            <span class="product__item-sold">Đã bán 18,7k</span>
+                                            <span class="product__item-location">TP. Hồ Chí Minh</span>
+                                        </div>
+                                        <div class="product__item-favorite">
+                                            <i class="ti-check"></i>
+                                            Yêu thích
+                                        </div>
+                                        <div class="product__item-promo">
+                                            <span class="product__item-promo-value">18%</span>
+                                            <span class="product__item-promo-label">GIẢM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <footer class="footer">
+        <footer class="app__footer">
 
         </footer>
     </div>
