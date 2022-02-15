@@ -1140,7 +1140,7 @@
     padding-top: 100%;
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: top center;
+    /* background-position: top center; */
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
 }
@@ -1389,5 +1389,148 @@ i.product__item-like-icon-liked {
 }
 
 .shop-product__pagination {
-    margin: 40px 0 80px;
+    margin: 40px 0 60px;
+}
+
+
+/* ----- Footer ----- */
+.app__footer {
+    border-top: 4px solid var(--primary-color);
+}
+
+
+/* Footer Advertisement */
+.footer__ads {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.footer-ads__list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.footer-ads__item {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.footer-ad__item-img {
+    width: 60px;
+    margin-right: 12px;
+}
+
+.footer-ad__item-text {
+    display: block;
+    color: #757575;
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+
+/* Footer Information */
+.footer__heading {
+    color: #737373;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer__info {
+    background-color: #fbfbfb;
+    padding-top: 24px;
+}
+
+.footer__list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer__item {
+    margin-bottom: 12px;
+}
+
+.footer__item-link {
+    display: flex;
+    align-items: center;
+    color: #737373;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.footer__item-link:hover {
+    color: var(--primary-color);
+}
+
+.footer__list-logos {
+    width: 170px;
+    margin-bottom: 36px;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer__item-logo {
+    display: flex;
+    justify-content: center;
+    margin: 0 8px 8px 0;
+}
+
+.footer__item-logo img {
+    max-width: 48px;
+}
+
+.footer__item-social-icon {
+    font-size: 1.6rem;
+    margin-right: 8px;
+}
+
+.footer__download {
+    display: flex;
+}
+
+.footer__download-qr {
+    width: 86px;
+    height: 86px; /* set height rồi nên kh cần set object-fit */
+    /* object-fit: contain; thuộc tính object-fit dùng trong thẻ img có tchat giống background-size của background-image */
+    border: 1px solid var(--border-color);
+}
+
+.footer__download-apps {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    margin-left: 16px;
+}
+
+.footer__download-app-icon:first-child {
+    margin-bottom: 6px;
+}
+
+.footer__download-app-icon {
+    height: 20px;
+}
+
+.footer__download-app-link {
+    color: transparent;
+    text-decoration: none;
+}
+
+.footer__bottom {
+    padding: 12px 0;
+    background-color: #f5f5f5;
+    margin-top: 60px;
+}
+
+.footer__bottom-copyright {
+    margin: 0;
+    color: #565656;
+    font-size: 1.4rem;
+    text-align: center;
 }
