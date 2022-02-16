@@ -1120,6 +1120,7 @@
 .product__item {
     display: block;
     position: relative;
+    height: 341px;
     text-decoration: none;
     margin-top: 10px;
     background-color: var(--white-color);
