@@ -495,12 +495,12 @@
     padding: 12px 16px;
 }
 
-.nav__user-item a:first-child {
+.nav__user-item:first-child a {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
 }
 
-.nav__user-item a:last-child {
+.nav__user-item:last-child a {
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
 }
